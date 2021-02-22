@@ -12,21 +12,6 @@ class BlockedEmail extends React.Component{
         }
     }
     
-    filterData=()=>{
-        const updatedBlockedEmail= this.state.blockedEmail.filter(item => {
-            return item.email.toLowerCase().includes(this.state.term.toLowerCase())
-        })
-        this.setState({blockedEmail: updatedBlockedEmail})
-    }
-
-       onChange = (e)=>{
-         this.setState({
-             term : e.target.value
-         })
-      }
-      
-
-  
     componentDidMount(){
         apiUrl.get('/settings/block-emails/')
         .then(posRes => {
@@ -40,6 +25,21 @@ class BlockedEmail extends React.Component{
         })
     })
 }
+
+EmailFilterData=(e)=>{
+    const updatedBlockedEmail= this.state.blockedEmail.filter(item => {
+        return item.email.toLowerCase().includes(this.state.term.toLowerCase())
+    })
+    this.setState({blockedEmail: updatedBlockedEmail})
+    e.preventDefault()
+}
+
+   onChange = (e)=>{
+     this.setState({
+         term : e.target.value
+     })
+  }
+  
     render(){
        const {blockedEmail} = this.state
 
@@ -59,7 +59,7 @@ class BlockedEmail extends React.Component{
      <div className="card">
      <div className="card-header text-right"> <span className="float-left "><h6><b>Blocked Email - {blockedEmail.length}</b></h6></span>
      
-    <button className="btn btn-warning btn-md" onClick={this.actions} ><i className="fas fa-filter"></i>Filter</button>
+    <button className="btn btn-warning btn-md" onClick={this.props.onClick} ><i className="fas fa-filter"></i>Filter</button>
    
   </div>
   <div className="card-body">

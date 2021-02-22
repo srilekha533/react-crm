@@ -4,6 +4,7 @@ import BlockDomain from '../blockedomain/BlockDomain';
 import BlockedEmail from '../blockedEmail/BlockedEmail';
 import apiUrl from '../../api/apiurl';
 import ContactFilter from './ContactFilter'
+import EmailFilter from '../blockedEmail/EmailFilter';
 
 class ContactList extends React.Component{
       constructor(props){
@@ -11,6 +12,7 @@ class ContactList extends React.Component{
          this.state= {
             contactsList : [],
             show: false,
+            showemail : false,
             term : '',
             error : ""
         }
@@ -44,6 +46,13 @@ onChange = (e)=>{
         show : !this.state.show
     })
 }
+
+emailactions = () => {
+    this.setState({
+        showemail : !this.state.showemail
+    })
+}
+
   filterData=(e)=>{
       
         const updatedContactList= this.state.contactsList.filter(item => {
@@ -53,10 +62,8 @@ onChange = (e)=>{
         })
         this.setState({contactsList: updatedContactList})
         e.preventDefault()
-    }
+  }
 
-  
-   
     render(){
         
        const {contactsList} = this.state
@@ -76,6 +83,15 @@ onChange = (e)=>{
                                                onClick={this.filterData} />  </div> : null
 
        }
+
+{ this.state.showemail ? <div> <EmailFilter /> </div> : null
+
+       }
+
+{ this.state.show ? <div> hello  </div> : null
+
+       }
+
 
     <div className="nav nav-tabs" id="myTab" role="tablist">
   
@@ -153,15 +169,10 @@ onChange = (e)=>{
      
     
   <div className="tab-pane fade" id="blockdomain" role="tabpanel" aria-labelledby="nav-domain-tab">
-  { this.state.show ? <div> <ContactFilter onChange={this.onChange} 
-                                               value= {this.state.term}
-                                               onClick={this.filterData} />  </div> : null
-
-       }
       <BlockDomain />
   </div>
   <div className="tab-pane fade" id="blockemail" role="tabpanel" aria-labelledby="nav-email-tab">
-      <BlockedEmail />
+      <BlockedEmail onClick={this.emailactions} />
       </div>
 </div>
 

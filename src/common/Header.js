@@ -52,16 +52,19 @@ function Header() {
             <li className="nav-item">
               <Link className={(currentPage === '/leads' || currentPage === '/leads/create/' || currentPage === `/leads/${id}/edit/` || currentPage === `/leads/${id}/view/`) ? 'nav-link active' : 'nav-link'} onClick={() => setCurrentPage('/leads')} id="leads" to={'/leads'}>Leads</Link>                            
             </li>
-            <li className="nav-item"><a className="nav-link" id="opportunities">Opportunities</a>
+            <li className="nav-item">
+              <a className="nav-link" id="opportunities">Opportunities</a>
             </li>
-            <li className="nav-item"><a className="nav-link" id="cases">Cases</a></li>
+            <li className="nav-item">
+              <a className="nav-link" id="cases">Cases</a>
+            </li>
             <li className="nav-item">
             <Link className={(currentPage === '/documents' || currentPage === '/documents/create/' || currentPage === `/documents/${id}/edit/` || currentPage === `/socuments/${id}/view/`) ? 'nav-link active' : 'nav-link'} onClick={() => setCurrentPage('/documents')} id="documents" to={'/documents'}>Documents</Link>
             </li>
             <li className="nav-item"><a className="nav-link" id="tasks">Tasks</a></li>
             <li className="nav-item"><a className="nav-link" id="invoices">Invoices</a></li>
             <li className="nav-item"><a className="nav-link" id="events">Events</a></li>
-            <li className="nav-item"><a className="nav-link" id="teams">Teams</a></li>
+            <li className="nav-item"><Link to ='/teams' className="nav-link" id="teams"> Teams </Link> </li>
           </ul>
           <ul className="navbar-nav navbar-right my-2 my-lg-0">
             <li className="nav-item dropdown">

@@ -59,7 +59,7 @@ filterData=()=>{
      <div className="card-header text-right"> <span className="float-left "><h6><b>Blocked Domain - {blockdomain.length}</b></h6></span>
      
     <input type="text" onChange={this.onChange} value= {this.state.term} />
-    <button className="btn btn-warning btn-md" onClick={this.filterData} ><i className="fas fa-filter"></i>Filter</button>
+    <button className="btn btn-warning btn-md" onClick={this.props.onClick} ><i className="fas fa-filter"></i>Filter</button>
    
   </div>
   <div className="card-body">

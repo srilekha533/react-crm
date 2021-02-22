@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 class UserDelete extends React.Component{
 
   state= {
-    users : []
+    users : [],
+    errors : ''
   }
 
   componentDidMount(){
@@ -17,11 +18,13 @@ class UserDelete extends React.Component{
                 users :  posRes.data.data.user_obj
                
               })
-               console.log(posRes.data.data.user_obj)
+              
                         
                        
             }).catch(errRes=> {
-                         console.log(errRes)
+                        this.setState({
+                          errors : errRes
+                        })
                          });
                         }
 

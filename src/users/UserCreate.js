@@ -22,13 +22,11 @@ class UserCreate extends React.Component{
 
      onInputChange = e => {
        e.preventDefault()
-       console.log(e.target.value)
          this.setState({ [e.target.name] : e.target.value });
       };
 
      onSubmit = e => { 
        e.preventDefault()
-       console.log(this.state)
        apiurl.post('/users/',this.state)
        this.props.history.push('/user')
         

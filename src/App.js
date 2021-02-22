@@ -30,6 +30,8 @@ import BlockDomain from './settings/blockedomain/BlockDomain'
 import CreateBlockedDomain from './settings/blockedomain/CreateBlockDomain';
 import EditBlockedDomain from './settings/blockedomain/EditBlockedDomain';
 import DeleteBlockedDomain from './settings/blockedomain/DeleteBlockedDomain';
+import Teams from './crm/Teams/Teams';
+
 
 
 
@@ -50,6 +52,10 @@ import { ACCOUNTS, CONTACTS, LEADS } from './common/apiUrls';
 import { useState, useEffect } from 'react';
 
 import { render } from 'react-dom';
+import ViewTeam from './crm/Teams/ViewTeam';
+import EditTeam from './crm/Teams/EditTeam';
+import DeleteTeam from './crm/Teams/DeleteTeam';
+import CreateTeam from './crm/Teams/CreateTeam';
 
 
 
@@ -118,6 +124,12 @@ function App() {
           <Route exact path={'/settings/blockedEmail/create'} component={CreateBlockedEmail} />
           <Route exact path={'/settings/editblockedEmail/:id'} component={EditBlockedEmail} />
           <Route exact path={'/settings/deleteblockedEmail/:id'} component={DeleteBlockedEmail} />
+
+          <Route exact path={'/teams'} component = {Teams} />
+          <Route exact path={'/teams/create'} component={CreateTeam} />
+          <Route exact path ={'/teams/view/:id'} component = {ViewTeam} />
+          <Route exact path= {'/teams/edit/:id'} component={EditTeam} />
+          <Route exact path={'/teams/delete/:id'} component = {DeleteTeam} />
 
           
 

@@ -56,7 +56,7 @@ class UserEdit extends React.Component{
       return <div className="container text-center mt-5 py-5"><h1>404 Error bad Request</h1></div>
      }
   
-    return(
+    return (
           <div className= "container mt-5 py-5">
              <div className="row">
               <div className="col-6 offset-3">
